@@ -3,6 +3,7 @@ import { isValidURL, convertToUrl, updateUrlToHttps, removeHttpsAndWww } from ".
 import messageBot from "./messageBot.js"
 import ddgSearch from "./duckduckgo.js"
 
+// my main BOt here 
 export default class Bot extends BaseBot {
     constructor(env){
         super(env)
@@ -23,13 +24,19 @@ export default class Bot extends BaseBot {
         }
     }
 
+    // when receive message from user 
     async onMessage(chatId, text){
         //const urlOpen = convertToUrl(text);
 
         if(!isValidURL(text)) {
+
+            // this bot get message from user
+            // and search duckduckgo 
             let { links, titles } = await ddgSearch(text)
             links = links.slice(0, 5)
             for(let i=0; i < links.length; i++){
+
+                // and return result for user 
                 await this.makeRequest("sendMessage", {
                     chat_id: chatId,
                     text: titles[i],

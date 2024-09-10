@@ -1,3 +1,5 @@
+// baseBot have many function for your bot need 
+
 export default class BaseBot {
     urlApi;
     constructor(env){
@@ -7,6 +9,9 @@ export default class BaseBot {
         this.urlApi = API + TOKEN
     }
 
+    // like help send request
+    // user can send Message by call
+    // makeRequest("/sendMessage", data)
     async makeRequest(methodBot, body) {
         let bodyJson;
         if(body){
@@ -39,6 +44,7 @@ export default class BaseBot {
         }
     }
 
+    // or call it for fast
     async sendMessge(chatId, text){
         return await this.makeRequest("sendMessage", {
             chat_id: chatId,

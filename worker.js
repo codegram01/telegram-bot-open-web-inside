@@ -11,6 +11,8 @@ export default {
       
       const update = await request.json();
 
+      // logic of bot have more code
+      // so i pass it to new file 
       const bot = new Bot(env)
       ctx.waitUntil(bot.onUpdate(update));
 
