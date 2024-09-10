@@ -14,6 +14,14 @@ It help search internet and open web inside Telegram
 
 ## Install
 - create cloudflare worker
+Create environment value of worker
+```
+API	           https://api.telegram.org/bot
+TOKEN          your_bot_token
+WEBHOOK_PATH   /telegram
+WEBHOOK_SECRET your_webhook_secret
+```
+
 - add this code to your worker
 - config telegram bot point to your worker 
 
